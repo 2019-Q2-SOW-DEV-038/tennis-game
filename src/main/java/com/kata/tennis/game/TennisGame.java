@@ -96,7 +96,11 @@ public class TennisGame {
 	
 	private boolean isGameOver() {
 		return (fetchLeadingPlayer().getPoint() > Constants.POINT_THREE
-				&& Math.abs(playerOne.getPoint() - playerTwo.getPoint()) > Constants.POINT_ONE);
+				&& pointDifferenceBetweenPlayers() > Constants.POINT_ONE);
+	}
+	
+	private int pointDifferenceBetweenPlayers() {
+		return Math.abs(playerOne.getPoint() - playerTwo.getPoint());
 	}
 	
 	private static String formatGameScore(int playerOnePoint,int playerTwoPoint)
