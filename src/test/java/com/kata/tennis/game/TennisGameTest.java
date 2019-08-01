@@ -18,5 +18,12 @@ public class TennisGameTest {
 		tennisGame.playerOneScoresPoint();
 		Assert.assertEquals(1, tennisGame.getPlayerOnePoint());
 	}
+	
+	@Test
+	public void playerTwoScoreIncreasesAfterWinningPoint() {
+		TennisGame tennisGame = new TennisGame("Federer", "Nadal");
+		tennisGame.playerTwoScoresPoint();
+		Assert.assertEquals(1, tennisGame.getPlayerTwoPoint());
+	}
 
 }

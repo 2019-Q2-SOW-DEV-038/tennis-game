@@ -16,6 +16,11 @@ public class TennisGame {
 	{
 		playerOnePoint++;
 	}
+	
+	public void playerTwoScoresPoint()
+	{
+		playerTwoPoint++;
+	}
 
 	public String getPlayerOneName() {
 		return playerOneName;
