@@ -46,21 +46,31 @@ public class TennisGameTest {
 	
 	@Test
 	public void shouldReturnFifteenLoveWhenScoreIsFifteenLove() {
-		tennisGame.scorePoint(PLAYER_ONE_NAME);
+		createScore(1,0);
 		Assert.assertEquals("Fifteen-Love", tennisGame.determineScore());
 	}
 	
 	@Test
 	public void shouldReturnLoveFifteenWhenScoreIsLoveFifteen() {
-		tennisGame.scorePoint(PLAYER_TWO_NAME);
+		createScore(0,1);
 		Assert.assertEquals("Love-Fifteen", tennisGame.determineScore());
 	}
 	
 	@Test
 	public void shouldReturnFifteenAllWhenScoreIsFifteenAll() {
-		tennisGame.scorePoint(PLAYER_ONE_NAME);
-		tennisGame.scorePoint(PLAYER_TWO_NAME);
+		createScore(1,1);
 		Assert.assertEquals("Fifteen-All", tennisGame.determineScore());
 	}
-
+	
+	private void createScore(int playerOnePoint,int playerTwoPoint)
+	{
+		for(int pointCounter=0;pointCounter<playerOnePoint;pointCounter++)
+		{
+			tennisGame.scorePoint(PLAYER_ONE_NAME);
+		}
+		for(int pointCounter=0;pointCounter<playerTwoPoint;pointCounter++)
+		{
+			tennisGame.scorePoint(PLAYER_TWO_NAME);
+		}
+	}
 }
