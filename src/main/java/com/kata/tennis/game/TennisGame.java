@@ -23,8 +23,7 @@ public class TennisGame {
 	
 	public String determineScore()
 	{	
-		if(playerOne.getPoint() == playerTwo.getPoint() && (playerOne.getPoint() + playerTwo.getPoint() > Constants.MINIMUM_POINTS_FOR_DEUCE))
-		{
+		if (isDeuce()) {
 			return Constants.TEXT_DEUCE;
 		}
 		
@@ -72,6 +71,18 @@ public class TennisGame {
 
 	public void setPlayerTwo(Player playerTwo) {
 		this.playerTwo = playerTwo;
+	}
+	
+	private boolean isScoresLevel() {
+		return playerOne.getPoint() == playerTwo.getPoint();
+	}
+	
+	private boolean isBothPlayersReachedForty() {
+		return (playerOne.getPoint() + playerTwo.getPoint() > Constants.MINIMUM_POINTS_FOR_DEUCE);
+	}
+	
+	private boolean isDeuce() {
+		return (isScoresLevel() && isBothPlayersReachedForty());
 	}
 
 }
