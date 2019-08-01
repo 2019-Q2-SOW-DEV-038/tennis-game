@@ -1,25 +1,25 @@
 package com.kata.tennis.game;
 
+import com.kata.tennis.model.Player;
+
 public class TennisGame {
 	
-	private String playerOneName;
-	private String playerTwoName;
-	private int playerOnePoint;
-	private int playerTwoPoint;
+	private Player playerOne;
+	private Player playerTwo;
 	
-	public TennisGame(String playerOneName, String playerTwoName) {
-		this.playerOneName = playerOneName;
-		this.playerTwoName = playerTwoName;
+	public TennisGame(Player playerOne, Player playerTwo) {
+		this.playerOne = playerOne;
+		this.playerTwo = playerTwo;
 	}
 	
 	public void playerOneScoresPoint()
 	{
-		playerOnePoint++;
+		playerOne.setPoint(playerOne.getPoint()+1);
 	}
 	
 	public void playerTwoScoresPoint()
 	{
-		playerTwoPoint++;
+		playerTwo.setPoint(playerTwo.getPoint()+1);
 	}
 	
 	public String determineScore()
@@ -27,35 +27,20 @@ public class TennisGame {
 		return "Love All";
 	}
 
-	public String getPlayerOneName() {
-		return playerOneName;
+	public Player getPlayerOne() {
+		return playerOne;
 	}
 
-	public void setPlayerOneName(String playerOneName) {
-		this.playerOneName = playerOneName;
+	public void setPlayerOne(Player playerOne) {
+		this.playerOne = playerOne;
 	}
 
-	public String getPlayerTwoName() {
-		return playerTwoName;
+	public Player getPlayerTwo() {
+		return playerTwo;
 	}
 
-	public void setPlayerTwoName(String playerTwoName) {
-		this.playerTwoName = playerTwoName;
+	public void setPlayerTwo(Player playerTwo) {
+		this.playerTwo = playerTwo;
 	}
 
-	public int getPlayerOnePoint() {
-		return playerOnePoint;
-	}
-
-	public void setPlayerOnePoint(int playerOnePoint) {
-		this.playerOnePoint = playerOnePoint;
-	}
-
-	public int getPlayerTwoPoint() {
-		return playerTwoPoint;
-	}
-
-	public void setPlayerTwoPoint(int playerTwoPoint) {
-		this.playerTwoPoint = playerTwoPoint;
-	}
 }
