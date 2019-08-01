@@ -22,7 +22,12 @@ public class TennisGame {
 	}
 	
 	public String determineScore()
-	{
+	{	
+		if(playerOne.getPoint() == playerTwo.getPoint() && (playerOne.getPoint() + playerTwo.getPoint() > Constants.MINIMUM_POINTS_FOR_DEUCE))
+		{
+			return Constants.TEXT_DEUCE;
+		}
+		
 		String playerOneScoreAsString = convertPoint(playerOne.getPoint());
 		String playerTwoScoreAsString = convertPoint(playerTwo.getPoint());
 

@@ -59,12 +59,24 @@ public class TennisGameTest {
         "3, 2, Forty-Thirty",
         "0, 3, Love-Forty",
         "1, 3, Fifteen-Forty",
-        "2, 3, Thirty-Forty",
-        "3, 3, Forty-All"})
+        "2, 3, Thirty-Forty"})
 	public void shouldReturnScoreInTennisFormatBasedOnThePointsScoredByPlayers(int playerOnePoint, int playerTwoPoint,
 			String gameScore) {
 		createScore(playerOnePoint, playerTwoPoint);
 		Assert.assertEquals(gameScore, tennisGame.determineScore());
+	}
+	
+	@Test
+	@Parameters({
+    	"3, 3",
+        "4, 4", 
+        "5, 5", 
+        "6, 6",
+        "9, 9"})
+	public void shouldReturnDeuceWhenScoresAreLevelAndBothPlayersReachedForty(int playerOnePoint, int playerTwoPoint)
+	{
+		createScore(playerOnePoint, playerTwoPoint);
+		Assert.assertEquals("Deuce", tennisGame.determineScore());
 	}
 
 	private void createScore(int playerOnePoint, int playerTwoPoint) {
