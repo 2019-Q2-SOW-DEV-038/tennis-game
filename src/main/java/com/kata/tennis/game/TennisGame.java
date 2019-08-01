@@ -35,12 +35,17 @@ public class TennisGame {
 	
 	private String convertPoint(int point) {
 		String pointInTennis = null;
-		if (point == Constants.POINT_ZERO) {
+		switch (point) {
+		case Constants.POINT_ZERO:
 			pointInTennis = Constants.TEXT_LOVE;
-		} else if (point == Constants.POINT_ONE) {
+			break;
+		case Constants.POINT_ONE:
 			pointInTennis = Constants.TEXT_FIFTEEN;
-		} else if (point == Constants.POINT_TWO) {
+			break;
+		case Constants.POINT_TWO:
 			pointInTennis = Constants.TEXT_THIRTY;
+			break;
+		default:
 		}
 		return pointInTennis;
 	}
