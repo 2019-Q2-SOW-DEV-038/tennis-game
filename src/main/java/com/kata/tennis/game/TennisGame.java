@@ -23,6 +23,10 @@ public class TennisGame {
 	
 	public String determineScore()
 	{	
+		if (isGameOver()) {
+			return fetchLeadingPlayer().getName() + Constants.HYPHEN + Constants.TEXT_WINS;
+		}
+		
 		if (isDeuce()) {
 			return Constants.TEXT_DEUCE;
 		}
@@ -88,6 +92,11 @@ public class TennisGame {
 	
 	private Player fetchLeadingPlayer() {
 		return (playerOne.getPoint() > playerTwo.getPoint()) ? playerOne : playerTwo;
+	}
+	
+	private boolean isGameOver() {
+		return (fetchLeadingPlayer().getPoint() > Constants.POINT_THREE
+				&& Math.abs(playerOne.getPoint() - playerTwo.getPoint()) > Constants.POINT_ONE);
 	}
 	
 	private static String formatGameScore(int playerOnePoint,int playerTwoPoint)
