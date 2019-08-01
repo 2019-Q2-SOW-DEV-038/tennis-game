@@ -24,7 +24,7 @@ public class TennisGame {
 	
 	public String determineScore()
 	{
-		return "Love All";
+		return "Love-All";
 	}
 
 	public Player getPlayerOne() {

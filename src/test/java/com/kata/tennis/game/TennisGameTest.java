@@ -36,7 +36,7 @@ public class TennisGameTest {
 	@Test
 	public void shouldReturnLoveAllWhenScoreIsLoveAll() {
 		TennisGame tennisGame = new TennisGame(new Player(PLAYER_ONE_NAME), new Player(PLAYER_TWO_NAME));
-		Assert.assertEquals("Love All", tennisGame.determineScore());
+		Assert.assertEquals("Love-All", tennisGame.determineScore());
 	}
 
 }
