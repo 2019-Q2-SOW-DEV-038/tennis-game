@@ -24,7 +24,24 @@ public class TennisGame {
 	
 	public String determineScore()
 	{
-		return "Love-All";
+		String playerOneScoreAsString = convertPoint(playerOne.getPoint());
+		String playerTwoScoreAsString = convertPoint(playerTwo.getPoint());
+
+		if (playerOneScoreAsString != null && playerOneScoreAsString.equalsIgnoreCase(playerTwoScoreAsString)) {
+			return playerOneScoreAsString + "-" + "All";
+		} else {
+			return playerOneScoreAsString + "-" + playerTwoScoreAsString;
+		}
+	}
+	
+	private String convertPoint(int point) {
+		String pointInTennis = null;
+		if (point == 0) {
+			pointInTennis = "Love";
+		} else if (point == 1) {
+			pointInTennis = "Fifteen";
+		} 
+		return pointInTennis;
 	}
 
 	public Player getPlayerOne() {
