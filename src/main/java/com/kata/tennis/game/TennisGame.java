@@ -26,18 +26,11 @@ public class TennisGame {
 		if (isDeuce()) {
 			return Constants.TEXT_DEUCE;
 		}
-		
-		String playerOneScoreAsString = convertPoint(playerOne.getPoint());
-		String playerTwoScoreAsString = convertPoint(playerTwo.getPoint());
 
-		if (playerOneScoreAsString != null && playerOneScoreAsString.equalsIgnoreCase(playerTwoScoreAsString)) {
-			return playerOneScoreAsString + Constants.HYPHEN + Constants.TEXT_ALL;
-		} else {
-			return playerOneScoreAsString + Constants.HYPHEN + playerTwoScoreAsString;
-		}
+		return formatGameScore(playerOne.getPoint(), playerTwo.getPoint());
 	}
 	
-	private String convertPoint(int point) {
+	private static String convertPoint(int point) {
 		String pointInTennis = null;
 		switch (point) {
 		case Constants.POINT_ZERO:
@@ -84,5 +77,18 @@ public class TennisGame {
 	private boolean isDeuce() {
 		return (isScoresLevel() && isBothPlayersReachedForty());
 	}
-
+	
+	private static String formatGameScore(int playerOnePoint,int playerTwoPoint)
+	{	
+		String gameScore=null;
+		String convertedPlayerOneScore = convertPoint(playerOnePoint);
+		String convertedPlayerTwoScore = convertPoint(playerTwoPoint);
+		
+		if (convertedPlayerOneScore != null && convertedPlayerOneScore.equalsIgnoreCase(convertedPlayerTwoScore)) {
+			gameScore = convertedPlayerOneScore + Constants.HYPHEN + Constants.TEXT_ALL;
+		} else {
+			gameScore = convertedPlayerOneScore + Constants.HYPHEN + convertedPlayerTwoScore;
+		}
+		return gameScore;
+	}
 }
