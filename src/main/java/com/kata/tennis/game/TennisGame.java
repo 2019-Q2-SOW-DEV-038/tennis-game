@@ -45,6 +45,9 @@ public class TennisGame {
 		case Constants.POINT_TWO:
 			pointInTennis = Constants.TEXT_THIRTY;
 			break;
+		case Constants.POINT_THREE:
+			pointInTennis = Constants.TEXT_FORTY;
+			break;
 		default:
 		}
 		return pointInTennis;
