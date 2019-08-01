@@ -30,5 +30,11 @@ public class TennisGameTest {
 		tennisGame.playerTwoScoresPoint();
 		Assert.assertEquals(POINT_ONE, tennisGame.getPlayerTwoPoint());
 	}
+	
+	@Test
+	public void shouldReturnLoveAllWhenScoreIsLoveAll() {
+		TennisGame tennisGame = new TennisGame(PLAYER_ONE_NAME, PLAYER_TWO_NAME);
+		Assert.assertEquals("Love All", tennisGame.determineScore());
+	}
 
 }
