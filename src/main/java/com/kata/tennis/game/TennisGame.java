@@ -1,5 +1,6 @@
 package com.kata.tennis.game;
 
+import com.kata.tennis.constant.Constants;
 import com.kata.tennis.model.Player;
 
 public class TennisGame {
@@ -26,18 +27,18 @@ public class TennisGame {
 		String playerTwoScoreAsString = convertPoint(playerTwo.getPoint());
 
 		if (playerOneScoreAsString != null && playerOneScoreAsString.equalsIgnoreCase(playerTwoScoreAsString)) {
-			return playerOneScoreAsString + "-" + "All";
+			return playerOneScoreAsString + Constants.HYPHEN + Constants.TEXT_ALL;
 		} else {
-			return playerOneScoreAsString + "-" + playerTwoScoreAsString;
+			return playerOneScoreAsString + Constants.HYPHEN + playerTwoScoreAsString;
 		}
 	}
 	
 	private String convertPoint(int point) {
 		String pointInTennis = null;
-		if (point == 0) {
-			pointInTennis = "Love";
-		} else if (point == 1) {
-			pointInTennis = "Fifteen";
+		if (point == Constants.POINT_ZERO) {
+			pointInTennis = Constants.TEXT_LOVE;
+		} else if (point == Constants.POINT_ONE) {
+			pointInTennis = Constants.TEXT_FIFTEEN;
 		} 
 		return pointInTennis;
 	}
