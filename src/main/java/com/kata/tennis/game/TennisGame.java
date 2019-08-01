@@ -15,9 +15,9 @@ public class TennisGame {
 	
 	public void scorePoint(String pointWinningPlayerName) {
 		if (pointWinningPlayerName.equalsIgnoreCase(playerOne.getName())) {
-			playerOne.setPoint(playerOne.getPoint() + 1);
+			playerOne.setPoint(playerOne.getPoint() + Constants.POINT_ONE);
 		} else if (pointWinningPlayerName.equalsIgnoreCase(playerTwo.getName())) {
-			playerTwo.setPoint(playerTwo.getPoint() + 1);
+			playerTwo.setPoint(playerTwo.getPoint() + Constants.POINT_ONE);
 		}
 	}
 	
