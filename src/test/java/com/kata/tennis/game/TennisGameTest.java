@@ -48,7 +48,12 @@ public class TennisGameTest {
     	"0, 0, Love-All",
         "1, 0, Fifteen-Love", 
         "0, 1, Love-Fifteen", 
-        "1, 1, Fifteen-All" })
+        "1, 1, Fifteen-All",
+        "2, 0, Thirty-Love",
+        "2, 1, Thirty-Fifteen",
+        "2, 2, Thirty-All",
+        "0, 2, Love-Thirty",
+        "1, 2, Fifteen-Thirty"})
 	public void shouldReturnScoreInTennisFormatBasedOnThePointsScoredByPlayers(int playerOnePoint, int playerTwoPoint,
 			String gameScore) {
 		createScore(playerOnePoint, playerTwoPoint);
