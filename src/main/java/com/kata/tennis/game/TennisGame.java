@@ -26,6 +26,12 @@ public class TennisGame {
 		if (isDeuce()) {
 			return Constants.TEXT_DEUCE;
 		}
+		
+		if(isAdvantage())
+		{
+			Player leadingPlayer = (playerOne.getPoint() > playerTwo.getPoint()) ? playerOne : playerTwo;
+			return Constants.TEXT_ADVANTAGE + Constants.HYPHEN + leadingPlayer.getName();
+		}
 
 		return formatGameScore(playerOne.getPoint(), playerTwo.getPoint());
 	}
@@ -76,6 +82,10 @@ public class TennisGame {
 	
 	private boolean isDeuce() {
 		return (isScoresLevel() && isBothPlayersReachedForty());
+	}
+	
+	private boolean isAdvantage() {
+		return (!isScoresLevel() && isBothPlayersReachedForty());
 	}
 	
 	private static String formatGameScore(int playerOnePoint,int playerTwoPoint)

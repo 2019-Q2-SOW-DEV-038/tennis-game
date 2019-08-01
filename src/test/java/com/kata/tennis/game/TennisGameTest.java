@@ -78,6 +78,34 @@ public class TennisGameTest {
 		createScore(playerOnePoint, playerTwoPoint);
 		Assert.assertEquals("Deuce", tennisGame.determineScore());
 	}
+	
+	@Test
+	@Parameters({
+    	"4, 3",
+        "5, 4", 
+        "6, 5", 
+        "7, 6",
+        "8, 7",
+        "9, 8" })
+	public void playerOneIsInAdvantage(int playerOnePoint, int playerTwoPoint)
+	{
+		createScore(playerOnePoint, playerTwoPoint);
+		Assert.assertEquals("Advantage-"+PLAYER_ONE_NAME, tennisGame.determineScore());
+	}
+	
+	@Test
+	@Parameters({
+    	"3, 4",
+        "4, 5", 
+        "5, 6", 
+        "6, 7",
+        "7, 8",
+        "8, 9" })
+	public void playerTwoIsInAdvantage(int playerOnePoint, int playerTwoPoint)
+	{
+		createScore(playerOnePoint, playerTwoPoint);
+		Assert.assertEquals("Advantage-"+PLAYER_TWO_NAME, tennisGame.determineScore());
+	}
 
 	private void createScore(int playerOnePoint, int playerTwoPoint) {
 		for (int pointCounter = 0; pointCounter < playerOnePoint; pointCounter++) {
