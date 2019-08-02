@@ -37,7 +37,7 @@
 				<version>0.8.2</version>
 				<configuration>
 					<excludes>
-						<exclude>com/kata/tennis/game/runner/**/*</exclude>
+						<exclude>com/kata/tennis/TennisApplication.class</exclude>
 					</excludes>
 				</configuration>
 				<executions>
