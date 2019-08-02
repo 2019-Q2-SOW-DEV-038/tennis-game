@@ -23,19 +23,17 @@ public class TennisGame {
 	
 	public String determineScore()
 	{	
+		String gameScore = null;
 		if (isGameOver()) {
-			return fetchLeadingPlayer().getName() + Constants.HYPHEN + Constants.TEXT_WINS;
+			gameScore = fetchLeadingPlayer().getName() + Constants.HYPHEN + Constants.TEXT_WINS;
+		} else if (isDeuce()) {
+			gameScore = Constants.TEXT_DEUCE;
+		} else if (isAdvantage()) {
+			gameScore = Constants.TEXT_ADVANTAGE + Constants.HYPHEN + fetchLeadingPlayer().getName();
+		} else {
+			gameScore = formatGameScore(playerOne.getPoint(), playerTwo.getPoint());
 		}
-		
-		if (isDeuce()) {
-			return Constants.TEXT_DEUCE;
-		}
-		
-		if (isAdvantage()) {
-			return Constants.TEXT_ADVANTAGE + Constants.HYPHEN + fetchLeadingPlayer().getName();
-		}
-
-		return formatGameScore(playerOne.getPoint(), playerTwo.getPoint());
+		return gameScore;
 	}
 	
 	private static String convertPoint(int point) {
