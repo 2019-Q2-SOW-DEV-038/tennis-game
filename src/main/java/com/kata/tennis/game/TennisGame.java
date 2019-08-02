@@ -39,23 +39,7 @@ public class TennisGame {
 	}
 	
 	private static String convertPoint(int point) {
-		String pointInTennis = null;
-		switch (point) {
-		case Constants.POINT_ZERO:
-			pointInTennis = Constants.TEXT_LOVE;
-			break;
-		case Constants.POINT_ONE:
-			pointInTennis = Constants.TEXT_FIFTEEN;
-			break;
-		case Constants.POINT_TWO:
-			pointInTennis = Constants.TEXT_THIRTY;
-			break;
-		case Constants.POINT_THREE:
-			pointInTennis = Constants.TEXT_FORTY;
-			break;
-		default:
-		}
-		return pointInTennis;
+		return Constants.SCORES[point];
 	}
 
 	public Player getPlayerOne() {

@@ -18,6 +18,8 @@ public class Constants {
 	public static final String TEXT_WINS = "wins";
 	
 	public static final char HYPHEN = '-';
+	
+	public static final String[] SCORES= {TEXT_LOVE,TEXT_FIFTEEN,TEXT_THIRTY,TEXT_FORTY};
 
 	private Constants() {
 	}
