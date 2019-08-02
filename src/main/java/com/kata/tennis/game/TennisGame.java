@@ -1,6 +1,6 @@
 package com.kata.tennis.game;
 
-import com.kata.tennis.constant.Constants;
+import static com.kata.tennis.constant.Constants.*;
 import com.kata.tennis.model.Player;
 
 public class TennisGame {
@@ -15,9 +15,9 @@ public class TennisGame {
 	
 	public void scorePoint(String pointWinningPlayerName) {
 		if (pointWinningPlayerName.equalsIgnoreCase(playerOne.getName())) {
-			playerOne.setPoint(playerOne.getPoint() + Constants.POINT_ONE);
+			playerOne.setPoint(playerOne.getPoint() + POINT_ONE);
 		} else if (pointWinningPlayerName.equalsIgnoreCase(playerTwo.getName())) {
-			playerTwo.setPoint(playerTwo.getPoint() + Constants.POINT_ONE);
+			playerTwo.setPoint(playerTwo.getPoint() + POINT_ONE);
 		}
 	}
 	
@@ -25,11 +25,11 @@ public class TennisGame {
 	{	
 		String gameScore = null;
 		if (isGameOver()) {
-			gameScore = fetchLeadingPlayer().getName() + Constants.HYPHEN + Constants.TEXT_WINS;
+			gameScore = fetchLeadingPlayer().getName() + HYPHEN + TEXT_WINS;
 		} else if (isDeuce()) {
-			gameScore = Constants.TEXT_DEUCE;
+			gameScore = TEXT_DEUCE;
 		} else if (isAdvantage()) {
-			gameScore = Constants.TEXT_ADVANTAGE + Constants.HYPHEN + fetchLeadingPlayer().getName();
+			gameScore = TEXT_ADVANTAGE + HYPHEN + fetchLeadingPlayer().getName();
 		} else {
 			gameScore = formatGameScore(playerOne.getPoint(), playerTwo.getPoint());
 		}
@@ -37,7 +37,7 @@ public class TennisGame {
 	}
 	
 	private static String convertPoint(int point) {
-		return Constants.SCORES[point];
+		return SCORES[point];
 	}
 
 	public Player getPlayerOne() {
@@ -53,7 +53,7 @@ public class TennisGame {
 	}
 	
 	private boolean isBothPlayersReachedForty() {
-		return (playerOne.getPoint() + playerTwo.getPoint() > Constants.MINIMUM_POINTS_FOR_DEUCE);
+		return (playerOne.getPoint() + playerTwo.getPoint() > MINIMUM_POINTS_FOR_DEUCE);
 	}
 	
 	private boolean isDeuce() {
@@ -69,8 +69,8 @@ public class TennisGame {
 	}
 	
 	private boolean isGameOver() {
-		return (fetchLeadingPlayer().getPoint() > Constants.POINT_THREE
-				&& pointDifferenceBetweenPlayers() > Constants.POINT_ONE);
+		return (fetchLeadingPlayer().getPoint() > POINT_THREE
+				&& pointDifferenceBetweenPlayers() > POINT_ONE);
 	}
 	
 	private int pointDifferenceBetweenPlayers() {
@@ -84,9 +84,9 @@ public class TennisGame {
 		String convertedPlayerTwoScore = convertPoint(playerTwoPoint);
 		
 		if (convertedPlayerOneScore != null && convertedPlayerOneScore.equalsIgnoreCase(convertedPlayerTwoScore)) {
-			gameScore = convertedPlayerOneScore + Constants.HYPHEN + Constants.TEXT_ALL;
+			gameScore = convertedPlayerOneScore + HYPHEN + TEXT_ALL;
 		} else {
-			gameScore = convertedPlayerOneScore + Constants.HYPHEN + convertedPlayerTwoScore;
+			gameScore = convertedPlayerOneScore + HYPHEN + convertedPlayerTwoScore;
 		}
 		return gameScore;
 	}
