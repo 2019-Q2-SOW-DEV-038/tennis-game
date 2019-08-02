@@ -108,4 +108,9 @@ public class TennisGame {
 		}
 		return gameScore;
 	}
+	
+	public boolean containsPlayer(String name)
+	{
+		return name.equalsIgnoreCase(playerOne.getName())||name.equalsIgnoreCase(playerTwo.getName());
+	}
 }

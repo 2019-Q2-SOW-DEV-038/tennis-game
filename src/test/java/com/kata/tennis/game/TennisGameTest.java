@@ -134,6 +134,18 @@ public class TennisGameTest {
 		createScore(playerOnePoint, playerTwoPoint);
 		Assert.assertEquals(PLAYER_TWO_NAME+"-wins", tennisGame.determineScore());
 	}
+	
+	@Test
+	public void checkGameContainsPlayerOne()
+	{
+		Assert.assertTrue(tennisGame.containsPlayer(PLAYER_ONE_NAME));
+	}
+	
+	@Test
+	public void checkGameContainsPlayerTwo()
+	{
+		Assert.assertTrue(tennisGame.containsPlayer(PLAYER_TWO_NAME));
+	}
 
 	private void createScore(int playerOnePoint, int playerTwoPoint) {
 		for (int pointCounter = 0; pointCounter < playerOnePoint; pointCounter++) {
